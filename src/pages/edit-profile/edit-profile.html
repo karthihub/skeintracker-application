@@ -1,0 +1,112 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    
+    <ion-grid>
+    <ion-card>
+
+
+    <div class="userImageDiv" style="padding: 15% 0%;">
+        <img class="userImage" [src]="photos" height="100px" width="100px" />
+    </div>
+    <ion-fab (click)="changeImage()" style="margin-left:45%; margin-top: -25%;">
+        <button ion-fab mini icon-only clear>
+            <ion-icon style="text-align:center" name="camera"></ion-icon>
+        </button>
+    </ion-fab>
+
+    <ion-list *ngFor="let t of tasks">
+        <ion-item style="border-bottom: 0.1px solid #195d84;">
+            <ion-icon name='ios-card-outline' class="skeinClr" item-start></ion-icon>
+            Skein ID
+            <ion-note item-end class="skeinClr">
+            {{t.skein_id}}
+            </ion-note>
+          </ion-item>
+
+          <ion-item style="border-bottom: 0.1px solid #195d84;">
+              <ion-icon name='ios-contact-outline' class="skeinClr" item-start></ion-icon>
+              Name
+              <ion-note item-end class="skeinClr">
+              {{t.fullname}}
+              </ion-note>
+            </ion-item>
+
+            <ion-item style="border-bottom: 0.1px solid #195d84;">
+                <ion-icon name='ios-mail-outline' class="skeinClr" item-start></ion-icon>
+                E-Mail
+                <ion-note item-end class="skeinClr">
+                    {{t.email}}
+                </ion-note>
+              </ion-item>
+
+              <ion-item style="border-bottom: 0.1px solid #195d84;">
+                  <ion-icon name='ios-call-outline'  class="skeinClr" item-start></ion-icon>
+                  Mobile
+                  <ion-note item-end class="skeinClr">
+                  {{t.mobile}}
+                  </ion-note>
+                </ion-item>
+
+                <ion-item *ngIf="isMngOption">
+                    <ion-toggle [(ngModel)]="empOptions" style="pointer-events: none;"></ion-toggle>
+                    <ion-label>
+                      Emp Option
+                    </ion-label>
+                    <ion-icon name='ios-leaf-outline' class="skeinClr" item-start></ion-icon>
+                  </ion-item>
+
+                <ion-item style="text-align: center; background: #195d84;">
+                    <button ion-button outline icon-start (click)="regEdit(t)" style="border-color: #fff; color: #fff;">
+                        <ion-icon name='ios-create-outline' is-active="false"></ion-icon>
+                        Edit Profile
+                      </button>
+                </ion-item>
+
+      </ion-list>
+
+  <!-- <ion-row *ngFor="let t of tasks">
+    <ion-col text-right col-12>
+    <ion-icon class="editIcon" (click)="regEdit(t)" name="ios-create"></ion-icon>
+    </ion-col>
+    <ion-col text-left col-3>
+    <b>Skein Id:</b>
+    </ion-col>
+    <ion-col text-left col-9>
+    {{t.skein_id}}
+    </ion-col>
+    <ion-col text-left col-3>
+    <b>Name:</b>
+    </ion-col>
+    <ion-col text-left col-9>
+    {{t.fullname}}
+    </ion-col>
+    <ion-col text-left col-3>
+    <b>Email:</b>
+    </ion-col>
+    <ion-col text-left col-9>
+    {{t.email}}
+    </ion-col>
+    <ion-col text-left col-3>
+    <b>Mobile:</b>
+    </ion-col>
+    <ion-col text-left col-9>
+    {{t.mobile}}
+    </ion-col>
+  </ion-row> -->
+
+
+
+
+
+  </ion-card>
+  </ion-grid>
+
+</ion-content>

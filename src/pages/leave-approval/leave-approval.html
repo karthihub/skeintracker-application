@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Approve Leave</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let l of leaveData; let l=index" (click)="toggleGroup(l)" [ngClass]="{active: isGroupShown(l)}">
+        <ion-row>
+          <ion-col col-12 [style.backgroundColor]="l.color">
+          </ion-col>
+
+<ion-col col-10>
+              <ion-list>
+                <ion-item>{{ l.fullname }}
+                <p>{{ l.skein_id }}</p>
+                </ion-item>
+              </ion-list>
+          </ion-col>
+        
+          <ion-col col-2>
+              <p class="alert"><ion-icon color="header" name="ios-alert"></ion-icon></p>
+           </ion-col>
+
+          <ion-col col-12 *ngIf="isGroupShown(l)">
+              <ion-list >
+                <ion-item>Date: {{ l.fromdate }} to {{ l.todate }}
+                <p>Type: {{ l.leavetype }} </p>
+                </ion-item>
+              </ion-list>
+          </ion-col>
+
+          <ion-col col-12 *ngIf="isGroupShown(l)">
+              <ion-list >
+                <ion-item>Session:
+                <p>{{ l.fromsession }} and {{ l.tosession }}</p>
+                </ion-item>
+              </ion-list>
+          </ion-col>
+
+          <ion-col col-12 *ngIf="isGroupShown(l)">
+              <ion-list >
+                <ion-item>Reason:
+                <p>{{ l.reason }}</p>
+                </ion-item>
+              </ion-list>
+          </ion-col>
+
+          <ion-col col-6 *ngIf="isGroupShown(l)">
+              <ion-list >
+                  <ion-item>
+                  <button (click)="reject(l)" class="reject" ion-button full>Reject</button>
+                  </ion-item>
+            </ion-list>
+          </ion-col>
+
+          <ion-col col-6 *ngIf="isGroupShown(l)">
+              <ion-list>
+                  <ion-item>
+                    <button (click)="approve(l)" class="approve" ion-button full>Approve</button>
+                  </ion-item>
+            </ion-list>
+          </ion-col>
+
+        </ion-row>
+    </ion-card>
+
+</ion-content>

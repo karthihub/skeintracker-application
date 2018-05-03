@@ -1,0 +1,114 @@
+page-sign-in {
+
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover; 
+
+       .scroll-content{
+         padding-bottom: 0px !important;
+       }
+
+       .logo{
+           width: 45%;
+           margin-left:27%;
+           height: 20%;
+           margin-top: -25%;
+           border: 10px solid #1c3b4e;
+           border-radius: 50%;
+           background-color: #073242;  //#073242;
+       }
+
+       .skeinId{
+           margin-top:15% !important;
+           .iconPerson{
+             color: white !important;
+           }
+       }
+
+       .password{
+           margin-top:5% !important;
+           .iconPassword{
+             color: white !important;   
+           }
+       }
+
+       ion-row{
+         background-color: #195d84 !important;
+         border-radius: 20px;
+         margin-top: 40%;
+         opacity: 0.95;
+         box-shadow: 3px 3px 3px #057fa7;
+       }
+
+        ion-item{
+          background-color: transparent !important;
+          .item-inner{
+              border-bottom: 1px solid white !important;
+          }
+          .text-input{
+              color: white !important; 
+          }
+          ::placeholder {
+            color: white !important;
+            opacity: 0.5 !important; 
+        }
+        }
+
+       button{
+         margin-top:10% !important;
+         background-color: #179aca !important;
+         height: 5rem !important;
+         border-radius: 50px !important;
+       }
+
+       p{
+         margin-top:10% !important;
+         text-align: -webkit-center;
+         color: white !important; 
+       }
+       .restriction{
+         margin-top: 2% !important;
+         margin-left: 5% !important;
+         color: white !important;
+         text-align: -webkit-left !important;
+         span{
+         color:red !important;
+         }
+        }
+
+        .employeeOptions{
+          .checkbox-md .checkbox-icon {
+            border-radius: 10px !important;
+            width: 20px !important;
+            height: 20px !important;  
+          }
+          ion-checkbox {
+            margin: 9px 8px 9px 4px !important;
+          }
+
+        .checkbox-md .checkbox-checked .checkbox-inner {
+          left: 6px !important;
+          top: 1px !important;
+          width: 5px !important;
+          height: 12px !important;
+        }
+        .checkbox-md .checkbox-icon {
+          border-color: white;
+        }
+        .checkbox-md .checkbox-checked {
+          border-color: #7dd1d9;
+          background-color: #7dd1d9;
+      }
+        .item-inner{
+          border-bottom: 0px solid white !important;
+   }
+          ion-label{
+              color: white;
+          }
+          button{
+              background-color: transparent !important;
+          }
+      }
+   }
+
+}

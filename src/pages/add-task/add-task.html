@@ -1,0 +1,147 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf ="frompage == 'home'">Edit Task</ion-title>
+    <ion-title *ngIf ="frompage != 'home'">Add Task</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-grid>
+
+  <ion-card>
+      <ion-card-header *ngIf ="frompage == 'home'" class="skeinClr">
+          <b> Update Task</b>
+        </ion-card-header>
+        <ion-card-header *ngIf ="frompage != 'home'" class="skeinClr">
+          <b> New Task</b>
+        </ion-card-header>
+    <form  [formGroup]="add_task">
+      
+    <ion-row>
+    
+    <ion-col col-5 *ngIf="assignTo">
+        <ion-list>
+        <ion-item><span class="skeinClr">Assign To</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-7 *ngIf="assignTo">
+      <ion-list>
+          <ion-item>
+              <ion-select  formControlName="skein_id">
+              <ion-label>Assign to</ion-label>
+              <ion-option selected>Select</ion-option>
+              <ion-option *ngFor="let t of taskData" [value]="t.skein_id">{{t.fullname}} - {{t.skein_id}}</ion-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+      </ion-col>
+   
+    <ion-col col-5>
+      <ion-list>
+      <ion-item><span class="skeinClr">Project Name</span></ion-item>
+      </ion-list>
+    </ion-col>
+    <ion-col col-7>
+    <ion-list>
+        <ion-item>
+            <ion-select formControlName="projectname">
+            <ion-label>Projects</ion-label>
+            <ion-option selected>Select</ion-option>
+            <ion-option *ngFor="let p of projects" [value]="p.name">{{p.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    </ion-col>
+    
+    <ion-col col-5>
+        <ion-list>
+            <ion-item><span class="skeinClr">Task Name</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-7>
+    <ion-item>
+    <ion-input type="text" formControlName="taskname" placeholder="Task Name"></ion-input>
+    </ion-item>
+    </ion-col>
+    
+    <ion-col col-5>
+        <ion-list>
+            <ion-item><span class="skeinClr">Time Taken</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-7>
+    <ion-item>
+    <ion-select formControlName="timetaken">
+    <ion-label>Hours</ion-label>
+    <ion-option selected>Select</ion-option>
+    <ion-option *ngFor="let t of time" [value]="t.hours">{{t.hours}}</ion-option>
+    </ion-select>
+    </ion-item>
+    </ion-col>
+
+
+    <ion-col col-5>
+        <ion-list>
+            <ion-item><span class="skeinClr">Status</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-7>
+    <ion-item>
+    <ion-select formControlName="status">
+    <ion-label>Status</ion-label>
+    <ion-option selected value="Select">Select</ion-option>
+    <ion-option value="Completed">Completed</ion-option>
+    <ion-option value="In Progress">In Progress</ion-option>
+    <ion-option value="Pending">Pending</ion-option>
+    </ion-select>
+    </ion-item>
+    </ion-col>
+
+    <ion-col col-5>
+        <ion-list>
+            <ion-item><span class="skeinClr">Date</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col class="cal_date" col-7>
+     <ion-item>
+      <ion-datetime displayFormat="DD-MM-YYYY" formControlName="date">
+      </ion-datetime>
+     </ion-item>
+     <!-- <ion-icon class="cal" name="ios-calendar"></ion-icon> -->
+    </ion-col>
+   
+    <ion-col col-5>
+        <ion-list>
+            <ion-item><span class="skeinClr">Description</span></ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-7>
+    <ion-item>
+      <ion-textarea type="text" formControlName="description" placeholder="Description"></ion-textarea>
+    </ion-item>
+    </ion-col>
+
+
+  <ion-item style="text-align: center; background: #195d84;">
+  <button ion-button outline icon-start [disabled]="!add_task.valid" *ngIf ="frompage == 'add'"  (click)="addtasks()"  style="border-color: #fff; color: #fff;">
+  <ion-icon name='ios-add-circle-outline'></ion-icon>
+  Add</button>
+  <button ion-button outline icon-start [disabled]="!add_task.valid" *ngIf ="frompage == 'home'" (click)="edittasks()" style="border-color: #fff; color: #fff;">
+  <ion-icon name='ios-create-outline'></ion-icon>
+  Update</button>
+  <button ion-button outline icon-start [disabled]="!add_task.valid" *ngIf ="assignTo == 'true'" (click)="addtasks()"  style="border-color: #fff; color: #fff;">
+  <ion-icon name='ios-add-circle-outline'></ion-icon>
+  Add</button>
+  </ion-item>    
+   
+</ion-row>
+</form>
+  </ion-card>
+
+</ion-grid>
+
+</ion-content>

@@ -1,0 +1,136 @@
+<ion-header *ngIf ="frompage == 'editProfile' && topage != 'generateOTP'">
+        <ion-navbar>
+          <ion-title>Edit Profile</ion-title>
+        </ion-navbar>
+</ion-header>
+
+<ion-header *ngIf ="topage == 'generateOTP'">
+    <ion-navbar>
+      <ion-title>Forgot Password</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      
+      <ion-row>
+          <img src="./assets/icon/logo.png" class="logo"/>
+        <ion-col col-12>
+          <ion-list no-lines>
+            <form *ngIf ="frompage != 'editProfile' && topage != 'generateOTP'" [formGroup]="sign_up">
+            <ion-item class="skeinId">
+                  <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+                  <ion-input (ionChange)="skein($event)" type="text" autocapitalize="characters" formControlName="skein_id" placeholder="Skein Id" ></ion-input>
+            </ion-item>
+            <p class="restriction" *ngIf="!sign_up.controls.skein_id.valid && (sign_up.controls.skein_id.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p>
+            <ion-item class="fullName">
+                  <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-person-outline"></ion-icon>
+                  <ion-input type="text" formControlName="fullname" placeholder="Full name"></ion-input>
+             </ion-item>
+             <p class="restriction" *ngIf="!sign_up.controls.fullname.valid && (sign_up.controls.fullname.dirty || submitAtttempt)"><span>* </span>name should be within 'max 30 characters'</p>
+             <ion-item class="email">
+                <ion-icon class="iconMail" color="skein_icon" item-right name="ios-mail-outline"></ion-icon>
+                <ion-input type="email" formControlName="email" placeholder="example@skeintech.com"></ion-input>
+            </ion-item>
+            <p class="restriction" *ngIf="!sign_up.controls.email.valid && (sign_up.controls.email.dirty || submitAtttempt)"><span>* </span>email should be in 'example@skeintech.com'</p> 
+            
+            <ion-item class="mobileNumber">
+                <ion-icon class="iconMail" color="skein_icon" item-right name="ios-phone-portrait"></ion-icon>
+                <ion-select (ionChange)='onContryCodeChange($event, CountryCodes)' formControlName="ContryCode" interface="popover" style="width: 27%; z-index: 1; color: #fff;">
+                    <ion-option *ngFor="let Country of CountryCodes">{{Country.code}}</ion-option>
+                </ion-select>
+                <ion-input id="mobileNo" [(ngModel)]="mobileNo" [textMask]="{mask: mobileNoMask.phoneNumber}" formControlName="mobile" style="width: 73%; z-index: 0;" type="tel"  placeholder="Mobile number" maxlength="15" ></ion-input>
+            </ion-item> 
+            <p class="restriction" *ngIf="!sign_up.controls.mobile.valid && (sign_up.controls.mobile.dirty || submitAtttempt)"><span>* </span>mobile number max length '15 number'</p>  
+            
+            <ion-item class="password">
+                <ion-icon class="iconPassword" color="skein_icon" item-right name="ios-lock-outline"></ion-icon>
+                <ion-input type="password" class="form-control" formControlName="password" placeholder="Password" maxlength="12"></ion-input>
+            </ion-item>
+            <p class="restriction" *ngIf="!sign_up.controls.password.valid && (sign_up.controls.password.dirty || submitAtttempt)"><span>* </span>password length must be '8 to 12' characters'</p>
+            <!-- <ion-item class="ismanager" *ngIf="edited">
+                <ion-label>Is Manager?</ion-label>
+                <ion-toggle [(ngModel)]="disabled" formControlName="ismanager"></ion-toggle>
+            </ion-item> -->
+            <ion-item class="empOption" *ngIf="edited">
+                <ion-label>Do you want EMP Options?</ion-label>
+                <ion-toggle [(ngModel)]="disabled" formControlName="empOptions"></ion-toggle>
+            </ion-item>
+            <button class="button" [disabled]="!sign_up.valid" (click)="signup()" ion-button full>Sign up</button>
+            <p (click)="backToLogin()">Already have an account?</p>
+            </form>
+
+            <form *ngIf ="frompage == 'editProfile'" [formGroup]="update">
+            <ion-item class="skeinId">
+                  <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+                  <ion-input type="text" formControlName="skein_id" placeholder="Skein Id" ></ion-input>
+            </ion-item>
+            <p class="restriction" *ngIf="!update.controls.skein_id.valid && (update.controls.skein_id.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p>
+            <ion-item class="fullName">
+                  <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-person-outline"></ion-icon>
+                  <ion-input type="text" formControlName="fullname" placeholder="Full name"></ion-input>
+             </ion-item>
+             <p class="restriction" *ngIf="!update.controls.fullname.valid && (update.controls.fullname.dirty || submitAtttempt)"><span>* </span>name should be within 'max 30 characters'</p>
+             <ion-item class="email">
+                <ion-icon class="iconMail" color="skein_icon" item-right name="ios-mail-outline"></ion-icon>
+                <ion-input type="email" formControlName="email" placeholder="example@skeintech.com"></ion-input>
+            </ion-item>
+            <p class="restriction" *ngIf="!update.controls.email.valid && (update.controls.email.dirty || submitAtttempt)"><span>* </span>email should be in 'example@skeintech.com'</p>
+            <ion-item class="mobileNumber">
+                <ion-icon class="iconMail" color="skein_icon" item-right name="ios-phone-portrait"></ion-icon>
+                <ion-select (ionChange)='onContryCodeChange($event, CountryCodes)' formControlName="ContryCode" interface="popover" style="width: 27%; z-index: 1; color: #fff;">
+                    <ion-option *ngFor="let Country of CountryCodes">{{Country.code}}</ion-option>
+                </ion-select>
+                <ion-input id="mobileNo"  [textMask]="{mask: mobileNoMask.phoneNumber}" formControlName="mobile" style="width: 73%; z-index: 0;" type="tel"  placeholder="Mobile number" maxlength="15" ></ion-input>
+            </ion-item> 
+            <p class="restriction" *ngIf="!update.controls.mobile.valid && (update.controls.mobile.dirty || submitAtttempt)"><span>* </span>mobile number max length '15 number'</p>
+            <ion-item class="empOption" *ngIf="isMngOption">
+                <ion-label>Do you want EMP Options?</ion-label>
+                <ion-toggle [(ngModel)]="empOptionUpdate" formControlName="empOptions"></ion-toggle>
+            </ion-item>
+            <p></p>
+            <button class="button" [disabled]="false" (click)="updated()" ion-button block>Update</button> 
+            </form>
+
+            <form *ngIf = "topage == 'generateOTP' && generate_OTP" [formGroup]="generateOTP">
+                <ion-item class="skeinId">
+                    <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+                    <ion-input type="text" formControlName="skein_id" placeholder="Skein Id" ></ion-input>
+                </ion-item>
+                <p class="restriction" *ngIf="!generateOTP.controls.skein_id.valid && (generateOTP.controls.skein_id.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p>
+                    
+                <ion-item class="email">
+                    <ion-icon class="iconMail" color="skein_icon" item-right name="ios-mail-outline"></ion-icon>
+                    <ion-input type="email" formControlName="email" placeholder="example@skeintech.com"></ion-input>
+                </ion-item>
+                <p class="restriction" *ngIf="!generateOTP.controls.email.valid && (generateOTP.controls.email.dirty || submitAtttempt)"><span>* </span>email should be in 'example@skeintech.com'</p>
+                
+                <p></p>
+                <button class="button" [disabled]="!generateOTP.valid" (click)="otp()" ion-button block>Proceed</button> 
+            </form>
+
+            <form *ngIf="forgot_Password" [formGroup]="forgotPassword">
+                <p><span>* </span>Six-digit OTP has sent to entered E-mail ID</p>
+                
+                <ion-item class="otp">
+                    <ion-icon class="iconPassword" color="skein_icon" item-right name="ios-lock-outline"></ion-icon>
+                    <ion-input type="password" class="form-control" formControlName="otp" placeholder="Enter OTP" maxlength="6"></ion-input>
+                </ion-item>
+                <p class="restriction" *ngIf="!forgotPassword.controls.otp.valid && (forgotPassword.controls.otp.dirty || submitAtttempt)"><span>* </span>OTP length must be '6' digit'</p>
+                
+                <ion-item class="password">
+                    <ion-icon class="iconPassword" color="skein_icon" item-right name="ios-lock-outline"></ion-icon>
+                    <ion-input type="password" class="form-control" formControlName="password" placeholder="Enter new password" maxlength="12"></ion-input>
+                </ion-item>
+                <p class="restriction" *ngIf="!forgotPassword.controls.password.valid && (forgotPassword.controls.password.dirty || submitAtttempt)"><span>* </span>password length must be '8 to 12' characters'</p>
+                <p></p>
+                <button class="button" [disabled]="!forgotPassword.valid" (click)="forgot()" ion-button block>Update</button> 
+            </form>
+
+
+  
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-content>

@@ -1,0 +1,63 @@
+<ion-header>
+<ion-navbar>
+  <ion-title>Create Notification</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-grid>
+  
+  <ion-row>
+
+  <ion-col col-12>
+    <ion-list no-lines>
+
+        <form [formGroup]="crt_notify">
+        <ion-item class="skeinId">
+              <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+              <ion-input type="text" [(ngModel)]="notifyTitle" formControlName="notifyTitle" placeholder="Notification Title" ></ion-input>
+        </ion-item>
+        <p class="restriction" *ngIf="!crt_notify.controls.notifyTitle.valid && (crt_notify.controls.notifyTitle.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p>
+
+        <ion-item>
+          <ion-select [(ngModel)]="notifyCateg" formControlName="notifyCateg">
+          <ion-label>Category</ion-label>
+          <ion-option selected>Select</ion-option>
+          <ion-option *ngFor="let categ of notifyCategries" [value]="categ.name">{{categ.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <p class="restriction" *ngIf="!crt_notify.controls.notifyCateg.valid && (crt_notify.controls.notifyCateg.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p>
+
+        <ion-item>
+          <ion-textarea type="text" [(ngModel)]="content" formControlName="content" placeholder="Content"></ion-textarea>
+        </ion-item>
+          
+        <ion-item *ngIf="employee" class="empOption">
+          <ion-label>To Employee</ion-label>
+          <ion-toggle (ionChange)="toemployee()" [(ngModel)]="toEmployee" formControlName="toEmployee"></ion-toggle>
+        </ion-item>
+
+        <ion-item *ngIf="manager" class="empOption">
+          <ion-label>To Manager</ion-label>
+          <ion-toggle (ionChange)="tomanager()" [(ngModel)]="toManager" formControlName="toManager"></ion-toggle>
+        </ion-item>
+
+        <ion-item *ngIf="specific" class="empOption">
+          <ion-label>To specific Skein ID</ion-label>
+          <ion-toggle (ionChange)="specId()" [(ngModel)]="specificId" formControlName="specificId"></ion-toggle>
+        </ion-item>
+
+        <ion-item *ngIf="skeinId" class="skeinId">
+          <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+          <ion-input type="text" [(ngModel)]="toskein_id" formControlName="skein_id" placeholder="Skein Id" ></ion-input>
+        </ion-item>
+        <!-- <p class="restriction" *ngIf="!crt_notify.controls.skein_id.valid && (crt_notify.controls.skein_id.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with upper case</p> -->
+
+        <button class="button" (click)="send()" [disabled]="false" ion-button block>Send</button>
+        </form>
+        
+    </ion-list>
+  </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

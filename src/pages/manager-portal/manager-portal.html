@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="header">
+    <button class="menu" (click)="openMenu('main')">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Welcome&nbsp;{{nameval}}</ion-title>
+    <ion-buttons right *ngIf="searchOption">
+      <button ion-button icon-only (click)="searchFilter()">
+        <ion-icon name="ios-search-outline" style="font-size: 100%;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right *ngIf="empOptions" end (click)="addtask()">
+      <button ion-button>
+      <ion-icon item-start name="ios-add-circle-outline" style="font-size: 100%;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="getItems($event)" *ngIf="this.searchTaggleBtn"></ion-searchbar>
+
+  <ion-list *ngIf="employees?.length == 0">
+    <ion-item style="text-align: center">
+        <h2><ion-icon name="ios-sad-outline" class="skeinClr" item-start large></ion-icon> No Assignees found</h2>
+      </ion-item>
+</ion-list>
+
+<ion-card *ngFor="let e of employees">
+<ion-row>
+  <ion-col col-2>
+  <div *ngIf="e.photos==null || e.photos==''" class="userImageDiv">
+  <img src="./assets/icon/avatar.png" class="userImage"/>
+  </div>
+  <div *ngIf="e.photos!=null && e.photos!=''" class="userImageDiv">
+  <img src={{e.photos}} class="userImage"/>
+  </div>
+  </ion-col>
+
+  <ion-col col-10>
+      <ion-list>
+        <ion-item >
+        <span (click)="viewEmployee(e)">{{e.fullname}}</span>  
+        <ion-icon item-end name="ios-trash-outline" class="skeinClr" style="margin:5% 5%;" (click)="assigneeRemove(e.skein_id)"></ion-icon>
+        <p (click)="viewEmployee(e)">{{e.skein_id}}</p>
+        </ion-item>
+      </ion-list>
+  </ion-col>
+</ion-row>
+</ion-card>
+
+</ion-content>

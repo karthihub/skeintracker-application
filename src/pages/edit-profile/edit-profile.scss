@@ -1,0 +1,53 @@
+page-edit-profile {
+
+    ion-navbar{
+        .button-inner{
+            color:white !important;
+        }
+    }
+
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover; 
+        
+        ion-grid{
+            opacity: 0.9;
+        }
+
+        .fab-md {
+            background-color: #195d84 !important;
+        }
+        
+        ion-row{
+
+        text-align: center;
+
+        ion-col{
+            //text-align: center;
+            margin-top: 5% !important;
+        }
+
+        .editIcon{
+            font-size: 2.2em !important;
+        }
+    } 
+
+
+        .userImageDiv{
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            border-radius: 50%;
+            
+            .userImage{
+            border-radius: 50%;
+            margin-top: 5%;
+            border: 3px solid white;
+            width: 100px;
+            margin-left: 34%;
+         }
+         }
+    }
+
+
+}

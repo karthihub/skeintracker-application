@@ -1,0 +1,25 @@
+page-about {
+
+    ion-navbar{
+        .button-inner{
+            color:white !important;
+        }
+    }
+    
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover;
+
+        ion-grid{
+            span{
+                color: white !important;
+                b{
+                color: #1c3b4e !important
+                }
+            }
+        }
+
+    }
+
+
+}

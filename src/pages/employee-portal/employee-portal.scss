@@ -1,0 +1,115 @@
+page-employee-portal {
+    
+
+    .toolbar-content-md{
+        display: flex !important;
+    }
+
+    .toolbar-title{
+        width:90% !important;
+    }
+    
+    .bar-button-md{
+        font-size : 2rem !important;
+    }
+
+    .menu{
+        color: white !important;
+        background-color: #195d84 !important;
+        font-size: 2.4rem !important;
+    }
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover;
+
+        .scroll-content{
+            padding: 0px !important;
+          }
+        ion-grid{
+            padding:0px !important;
+            .item-md {
+                padding-left: 2px;
+                .item-button {
+                    height: 40px !important;
+                    border-radius: 50px;
+                    width: 50%;
+                    margin-left: 25%;
+                }
+            }
+        }
+
+        img {
+            max-width: 75% !important;
+            border: 0;
+            margin-top: 45%;
+            margin-left: 10%;
+        }
+
+        ion-row{
+            //margin-top:20%;
+            border-bottom: 1px solid #195d84 !important;
+            ion-col{
+                p{
+                    text-align: center
+                }
+            }
+
+           .projectName{
+            font-size: 12px;
+            color: #0ea0d0;
+           }
+           
+           .dateContainer{
+             background-color: lightblue;
+           .date{
+            font-size: 12px;
+            margin-left: 3%;
+            color: black;
+            text-align: left;
+            font-weight:bold;
+           }
+        }
+
+        }
+        ion-card{
+            opacity: 0.9;
+        }
+        .heading{
+            background-color: lightblue;
+            h5{
+                margin-top: 0% !important;
+                text-align: center;
+            }
+        }
+        .view{
+            width: 90%;
+            height: 1.5rem !important;
+            background-color: #195d84 !important;
+            .button-inner{
+                font-size: 11px !important;
+            }
+        }
+        .description{
+            p{
+            text-align: left;
+            margin-left: 3%;
+            }
+        }
+
+        .alert{
+            font-size: 2rem !important;
+        }
+
+        .calendar{
+            height: 2rem !important;
+            text-transform: uppercase;
+             color: #000 !important; 
+            background-color: transparent !important;
+            -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.12) !important;
+            box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.12) !important;
+            margin: 0rem 0rem 0.6rem !important;
+            padding: 0 0.5rem !important;
+        }
+    }
+
+}

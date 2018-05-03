@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-title *ngIf ="frompage != 'projectList'">Add Project</ion-title>
+      <ion-title *ngIf ="frompage == 'projectList'">Edit Project</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    
+    <ion-grid>
+            <ion-card>
+          <ion-card-header *ngIf ="frompage != 'projectList'" class="skeinClr">
+            <b>Add New Project</b>
+          </ion-card-header>
+          <ion-card-header *ngIf ="frompage == 'projectList'" class="skeinClr">
+             <b>Edit Project</b>
+          </ion-card-header>
+            
+            <ion-row>
+        
+            <ion-col col-5>
+              <ion-list>
+                <ion-item><span class="skeinClr">Add Project</span></ion-item>
+              </ion-list>
+            </ion-col>
+            <ion-col col-7>
+            <ion-item>
+            <ion-input type="text" placeholder="Project Name" [(ngModel)]="project_name"></ion-input>
+            </ion-item>
+            </ion-col>
+        
+            <ion-col col-5>
+              <ion-list>
+                <ion-item><span class="skeinClr">Add Logo</span></ion-item>
+              </ion-list>
+            </ion-col>
+            <ion-col col-7>
+                <div class="userImageDiv">
+                    <img class="userImage" [src]="project_logo" height="60px" width="50px" />
+                </div>
+                <ion-fab (click)="changeImage()" style="margin-left:22%; margin-top:-27%">
+                    <button ion-fab mini icon-only clear>
+                        <ion-icon color="header" style="text-align:center" name="camera"></ion-icon>
+                    </button>
+                </ion-fab>
+            </ion-col>
+        
+            <ion-item style="text-align: center; background: #195d84; margin-top: 5%">
+                <button *ngIf ="frompage != 'projectList'" (click)="addProject()" ion-button outline icon-star  style="border-color: #fff; color: #fff;">
+                <ion-icon name='ios-add-circle-outline'></ion-icon><span class="buttonName">Add</span></button>
+                <button *ngIf ="frompage == 'projectList'" (click)="updateProject()" ion-button outline icon-star  style="border-color: #fff; color: #fff;">
+                <ion-icon name='ios-create-outline'></ion-icon><span class="buttonName">Update</span></button>
+            </ion-item>
+        
+            </ion-row>
+            </ion-card>
+    </ion-grid>
+    
+</ion-content>

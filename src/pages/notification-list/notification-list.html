@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notification List</ion-title>
+    <ion-buttons right *ngIf="isMngOption">
+        <button ion-button icon-only (click)="pushNotificationPage()">
+          <ion-icon name="ios-send-outline" ></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="notificationList?.length == 0">
+      <ion-list >
+          <ion-item style="text-align: center">
+              <h2><ion-icon name="ios-sad-outline" class="skeinClr" item-start large></ion-icon> No Notifications found</h2>
+            </ion-item>
+      </ion-list>
+  </ion-card>
+
+  <div *ngIf="notificationList?.length > 0 && !notifySingleView">
+  <ion-card *ngFor="let notify of notificationList" (click)="showSingleNotify(notify)">
+        <ion-card-header [ngClass]="{blockOpacity: notify.readData == 1}">  
+            <ion-item>
+                {{notify.notify_content_srt}}
+                <ion-icon name="ios-mail-outline" item-right medium class="skeinClr"></ion-icon>
+              </ion-item>
+        </ion-card-header>
+
+        <ion-card-content [ngClass]="{blockOpacity: notify.readData == 1}">
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-9>{{notify.notify_title}}</ion-col>
+                  <ion-col col-3 class="date-dec">{{getDateText(notify.date)}}</ion-col>
+                </ion-row>
+              </ion-grid>
+        </ion-card-content>
+  </ion-card>
+</div>
+
+<ion-grid *ngIf="notifySingleView">
+    <ion-card *ngFor="let notifyData of notifySingle">
+        <ion-list style="border-bottom: 1px solid #195d84;">
+            <ion-item style="text-align: center;">
+              
+                <a class="icon-circle-large icon-circle-outline">
+                  <ion-icon name="ios-briefcase-outline" *ngIf="notifyData.category == 'business'"></ion-icon>
+                  <ion-icon name="ios-happy-outline" *ngIf="notifyData.category == 'birthday'"></ion-icon>
+                  <ion-icon name="ios-bookmarks-outline" *ngIf="notifyData.category == 'events'"></ion-icon>
+                  <ion-icon name="ios-chatbubbles-outline" *ngIf="notifyData.category == 'general'"></ion-icon>
+                </a>
+            </ion-item>
+            <ion-item style="text-align: center;" class="skeinClr">{{notifyData.category}}</ion-item>
+          </ion-list>
+
+          <ion-card-content>
+              <ion-card-title>
+                  {{notifyData.notify_title}}
+              </ion-card-title>
+              <p>
+                  {{notifyData.notify_content}}
+              </p>
+            </ion-card-content>
+
+            <ion-list style="margin-top: 50%;">
+                <ion-item style="text-align: center; background: #195d84;">
+                    <button ion-button outline icon-start (click)="deleteSingleNotify(notifyData)" style="height: 2.5em;border-color: #fff; color: #fff;">
+                        <ion-icon name='ios-trash-outline' is-active="false"></ion-icon>
+                        Delete
+                      </button>
+                </ion-item>
+            </ion-list>
+
+    </ion-card>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,149 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Apply Leave</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-card>
+        <ion-card-header class="skeinClr">
+           <b>Leave Form</b>
+        </ion-card-header>
+
+         <form [formGroup]="apply_leave">
+           <ion-row>
+
+           <ion-col col-5>
+                <ion-list>
+                    <ion-item class="skeinClr"><span >From</span></ion-item>
+                </ion-list>
+            </ion-col>
+
+            <ion-col col-7 class="calBtn" >
+                <ion-item>
+                    <ion-buttons (click)="fromCalendar()">{{ fromdate }}
+                        <button ion-button class="calendar">
+                        <ion-icon color="backgroundLight" name="ios-calendar-outline"></ion-icon>
+                        </button>
+                        </ion-buttons>
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-5>
+                    <ion-list>
+                        <ion-item class="skeinClr"><span>To</span></ion-item>
+                    </ion-list>
+                </ion-col>
+    
+                <ion-col col-7 class="calBtn" >
+                    <ion-item>
+                        <ion-buttons (click)="toCalendar()">{{ todate }}
+                            <button ion-button class="calendar">
+                            <ion-icon color="backgroundLight" name="ios-calendar-outline"></ion-icon>
+                            </button>
+                            </ion-buttons>
+                    </ion-item>
+                </ion-col>
+<!-- 
+            <ion-col col-6>
+              <ion-buttons (click)="fromCalendar()"><b>From</b> {{ fromdate }}
+                <button ion-button class="calendar">
+                <ion-icon name="ios-calendar"></ion-icon>
+                </button>
+              </ion-buttons>
+            </ion-col>
+            <ion-col col-6>
+              <ion-buttons end (click)="toCalendar()"><b>To</b> {{ todate }}
+                <button ion-button class="calendar">
+                <ion-icon name="ios-calendar"></ion-icon>
+                </button>
+              </ion-buttons>
+            </ion-col> -->
+
+
+          <ion-col col-5>
+              <ion-list>
+                <ion-item class="skeinClr"><span>Leave Type</span></ion-item>
+              </ion-list>
+          </ion-col>
+              
+          <ion-col col-7>
+            <ion-item>
+                <ion-select formControlName="leavetype">
+                <ion-label>Leave Type</ion-label>
+                <ion-option selected value="Select">Select</ion-option>
+                <ion-option value="Loss of pay">Loss of pay</ion-option>
+                <ion-option value="Comp-Off">Comp-Off</ion-option>
+                <ion-option value="Casual Leave">Casual Leave</ion-option>
+                <ion-option value="Sick Leave">Sick Leave</ion-option>
+                </ion-select>
+            </ion-item>
+          </ion-col>
+
+          <ion-col col-5>
+              <ion-list>
+              <ion-item class="skeinClr"><span>From Session</span></ion-item>
+              </ion-list>
+          </ion-col>
+          
+          <ion-col col-7>
+          <ion-item>
+              <ion-select formControlName="fromsession">
+              <ion-label>From session</ion-label>
+              <ion-option selected value="Select">Select</ion-option>
+              <ion-option value="Session 1">Session 1</ion-option>
+              <ion-option value="Session 2">Session 2</ion-option>
+              </ion-select>
+          </ion-item>
+          </ion-col>
+
+          <ion-col col-5>
+              <ion-list>
+              <ion-item class="skeinClr"><span>To Session</span></ion-item>
+              </ion-list>
+          </ion-col>
+          
+          <ion-col col-7>
+          <ion-item>
+              <ion-select formControlName="tosession">
+              <ion-label>To session</ion-label>
+              <ion-option selected value="Select">Select</ion-option>
+              <ion-option value="Session 1">Session 1</ion-option>
+              <ion-option value="Session 2">Session 2</ion-option>
+              </ion-select>
+          </ion-item>
+          </ion-col>
+          
+
+          <ion-col col-5>
+              <ion-list>
+              <ion-item class="skeinClr"><span>Reason</span></ion-item>
+              </ion-list>
+          </ion-col>
+          <ion-col col-7>
+          <ion-item>
+              <ion-textarea type="text" formControlName="reason" placeholder="Reason"></ion-textarea>
+          </ion-item>
+          </ion-col>
+
+  
+         <ion-item style="text-align: center; background: #195d84;">
+            <button ion-button outline icon-start [disabled]="!apply_leave.valid" (click)="applyLeave()"  style="border-color: #fff; color: #fff;">
+            Apply</button>
+         </ion-item>
+
+
+       
+        </ion-row>
+    </form>
+        </ion-card>
+    </ion-grid>
+
+  
+
+</ion-content>

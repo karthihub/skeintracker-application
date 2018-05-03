@@ -1,0 +1,128 @@
+
+page-send-notification  {
+
+    .button{
+         margin-top:5% !important;
+         background-color: #179aca !important;
+         height: 5rem !important;
+         border-radius: 50px !important;
+       }
+
+    ion-navbar{
+        .button-inner{
+            color:white !important;
+        }
+    }
+
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover; 
+
+       .scroll-content{
+        padding-bottom: 0px !important;
+       }
+      
+
+       .skeinId{
+           margin-top:5% !important;
+           .iconPerson{
+             color: white !important;
+           }
+       }
+
+       .password .email .fullName  .mobileNumber{
+           margin-top:5% !important;
+           .iconPassword{
+             color: white !important;   
+           }
+
+           .item-inner .input-wrapper ion-select button{
+            background: transparent !important;
+            color: #fff;
+           }
+       }
+
+       ion-row{
+         background-color: #195d84 !important;
+         border-radius: 20px;
+         opacity: 0.95;
+         box-shadow: 3px 3px 3px #057fa7;
+       }
+
+           ion-item{
+             background-color: transparent !important;
+             .item-inner{
+                 border-bottom: 1px solid white !important;
+             }
+             .text-input{
+                 color: white !important; 
+             }
+             ::placeholder {
+                color: white !important;
+                opacity:  0.5 !important; 
+            }
+           }
+
+       
+
+       p{
+         margin-top:8% !important;
+         text-align: -webkit-center;
+         color: white !important; 
+       }
+       .restriction{
+        margin-top: 2% !important;
+        margin-left: 5% !important;
+        color: white !important;
+        text-align: -webkit-left !important;
+        span{
+        color:red !important;
+        }
+       }
+
+       .ismanager{
+           .item-inner{
+        border-bottom: 0px solid white !important;
+    }
+           ion-label{
+               color: white;
+           }
+           button{
+               background-color: transparent !important;
+           }
+       }
+
+       .empOption{
+        .item-inner{
+     border-bottom: 0px solid white !important;
+ }
+        ion-label{
+            color: white;
+        }
+        button{
+            background-color: transparent !important;
+        }
+    }
+   }
+
+   .selectWrapper {
+	.select-icon {
+		visibility: hidden;
+	}
+     }
+
+     ion-select{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        overflow: visible; 
+        max-width: 100%;
+        margin-left: -4%;
+        color: #fff;
+     }
+}
+
+
+
+

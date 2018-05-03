@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "239500422172",
+    "firebase_url": "https://skeintracker2018.firebaseio.com",
+    "project_id": "skeintracker2018",
+    "storage_bucket": "skeintracker2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239500422172:android:a86d786651d1d28f",
+        "android_client_info": {
+          "package_name": "io.ionic.SkeinTracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239500422172-8cub5159kcjp0tlmr9u50e7hoeitnnfr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ3BBRAvDTx5czgG2hG15Xm0Akhm6kvvw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,81 @@
+page-apply-leave {
+
+    ion-navbar{
+        .button-inner{
+            color:white !important;
+        }
+    }
+    ion-content{
+        background-image: url('../assets/icon/bg.png') !important;
+        background-size: cover;
+    .scroll-content {
+        padding: 0px !important;
+    }
+    ion-grid{
+        margin-top: 5%;
+        .card-md {
+            //border-radius: 10px !important;
+        }
+    }
+    ion-col{
+        border-bottom: 1px solid #b8e5e2;
+    }
+
+    .calBtn{
+        .label-md {
+            margin: 0% 4%;
+        }
+    }
+
+    ion-card{
+        opacity: 0.9;
+    }
+    ion-card-header{
+        text-align: center;
+        border-bottom: 2px solid #195d84;
+    }
+    .input-wrapper {
+        width:100%;
+    }
+    ion-select {
+        max-width: 100% !important;
+    }
+    .button-md{
+        background-color: transparent !important;
+    }
+    .item-md {
+        padding-left: 2px;
+        .item-button {
+            height: 30px !important;
+            font-size: 1.5rem !important;
+        }
+    }
+    .item-datetime .label-md {
+        color: black !important;
+    }
+    .datetime-md {
+        padding: 13px 80px 13px 16px !important;
+    }
+
+    .item-md.item-block .item-inner {
+         padding-right: 0px !important;
+    }
+
+    .calendar{
+        height: 2rem !important;
+        text-transform: uppercase;
+         color: #000 !important; 
+        background-color: transparent !important;
+        -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.12) !important;
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0px rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.12) !important;
+        margin: 0rem 0rem 0.6rem !important;
+        padding: 0 0.5rem !important;
+    }
+
+    .select-md {
+        padding: 13px 8px 13px 9px !important;
+    }
+
+}
+
+}

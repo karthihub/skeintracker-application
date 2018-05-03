@@ -1,0 +1,89 @@
+page-modal-page {
+
+    ion-content{
+        border-radius: 8% 8%;
+        border: 1px solid #fff;
+        // background-image: url('../assets/icon/bg.png') !important;
+        background-color: #3A5559 !important;
+        background-size: cover; 
+    }
+
+    ion-navbar{
+        .button-inner{
+            color:white !important;
+        }
+    }
+
+    ion-card-header {
+        display: block;
+        overflow: visible;
+        text-overflow: unset;
+        white-space: unset;
+    }
+    .card-header-md{
+        font-size: 1em;
+        padding: 0px 14px 0px 14px;
+        font-weight: bold;
+    }
+
+    .card-content-md{
+        padding: 13px 14px;
+        margin-top: -3%
+    }
+
+    .item-md{
+        padding-left: 0 !important;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .item-md.item-block .item-inner{
+        padding-right: 0 !important;
+    }
+
+    .card-header-md .item .item-inner .input-wrapper .label-md{
+        display: block;
+        overflow: visible;
+        text-overflow: unset;
+        white-space: unset;
+        margin: 13px 10px 13px 0;
+    }
+    .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end]{
+        margin-left: 0;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .grid{
+        padding: 0;
+        margin-left: -1.5%;
+        margin-right: auto;
+        width: 101%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .date-dec{
+        text-align: right;
+        font-size: 0.7em;
+        color: #C0C0C0;
+        margin-top: 1.5%;
+    }
+
+    .blockOpacity{
+        opacity: 0.5;
+    }
+
+}
+
+.modal-wrapper{
+    margin: 48% 10%;
+    height: 37%;
+}

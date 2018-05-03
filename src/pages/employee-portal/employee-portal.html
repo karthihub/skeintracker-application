@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar color="header">
+    <button class="menu" (click)="openMenu('main')">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Welcome&nbsp;{{nameval}}</ion-title> 
+    <ion-buttons end (click)="addtask()">
+    <button ion-button>
+    <ion-icon item-start name="ios-add-circle-outline"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-grid *ngIf="!tasks">
+
+  <img src="./assets/imgs/no_data.png"/>
+
+</ion-grid>
+
+<ion-grid *ngIf="tasks">
+<ion-card>
+   <!-- <ion-row>
+    <ion-col col-6>
+      <ion-buttons (click)="fromCalendar()"><b>From:</b> {{ fromdate }}
+        <button ion-button class="calendar">
+        <ion-icon name="ios-calendar"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col col-6>
+      <ion-buttons end (click)="toCalendar()"><b>To:</b> {{ todate }}
+        <button ion-button class="calendar">
+        <ion-icon name="ios-calendar"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>   -->
+  
+  
+  <ion-row class="heading">
+        <ion-col col-5>
+        <h5><b>Tasks</b></h5>
+        </ion-col>
+        <ion-col col-2>
+        <h5><b>Hours</b></h5>
+        </ion-col>
+        <ion-col col-3>
+        <h5><b>Status</b></h5>
+        </ion-col>
+        <ion-col col-2>
+          <h5><b>Edit</b></h5>
+        </ion-col>
+    </ion-row>
+
+  <ion-item-group *ngFor="let group of tasks | groupBy: 'date'">
+    
+    <ion-row>
+    <ion-col col-12 class="dateContainer">
+        {{ group.key }}
+    </ion-col>
+    </ion-row>
+    
+    <ion-row *ngFor="let event of group.list; let event=index" (click)="toggleGroup(event)" [ngClass]="{active: isGroupShown(event)}">
+    <ion-col col-5>
+      <p class="projectName"> {{event.projectname}}</p>
+      <p>{{event.taskname}}</p>
+    </ion-col>
+    <ion-col col-2>
+      <p>{{event.timetaken}}</p>
+    </ion-col>
+    <ion-col col-3>
+      <p>{{event.status}}</p>
+    </ion-col>
+    <ion-col col-2>
+       <p (click)="goTo(event)"><ion-icon name="ios-create-outline"></ion-icon></p>
+       <p class="alert"><ion-icon color="header" name="ios-alert"></ion-icon></p>
+    </ion-col>
+    <ion-col col-12 class="description">
+        <p *ngIf="isGroupShown(event)"><b>Description:</b></p>
+        <p *ngIf="isGroupShown(event)">{{event.description}}</p>
+    </ion-col>
+    </ion-row>
+
+  </ion-item-group>
+
+</ion-card>
+</ion-grid>
+
+</ion-content>

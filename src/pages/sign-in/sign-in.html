@@ -1,0 +1,31 @@
+<ion-content padding>
+  <ion-grid>
+        
+    <ion-row>
+        <img src="./assets/icon/logo.png" class="logo"/>
+      <ion-col col-12>
+        <ion-list no-lines>
+          <form [formGroup]="data">
+          <ion-item class="skeinId">
+            <ion-icon class="iconPerson" color="skein_icon" item-right name="ios-card-outline"></ion-icon>
+            <ion-input type="text" (ionChange)="skein($event)" autocapitalize="characters" formControlName="skein_id" placeholder="Skein Id"></ion-input>
+          </ion-item>
+          <p class="restriction" *ngIf="!data.controls.skein_id.valid && (data.controls.skein_id.dirty || submitAtttempt)"><span>* </span>should be a valid 'Skein ID' with Upper case</p>      
+          <ion-item class="password">
+              <ion-icon class="iconPassword" color="skein_icon" item-right name="ios-lock-outline"></ion-icon>
+              <ion-input type="password" formControlName="password" placeholder="Password" maxlength="12"></ion-input>
+          </ion-item>
+          <p class="restriction" *ngIf="!data.controls.password.valid && (data.controls.password.dirty || submitAtttempt)"><span>* </span>password length must be '8 to 12' characters'</p> 
+          <!-- <ion-item *ngIf="edited" class="employeeOptions">
+            <ion-label>You need employee options?</ion-label>
+            <ion-checkbox [(ngModel)]="empOptions" formControlName="empOptions" (ionChange)="updateEmpOptions()"></ion-checkbox>
+          </ion-item>  -->
+          <button [disabled]="!data.valid" (click)="home()" ion-button full>Sign in</button>
+          </form>
+    
+          <p><span (click)="register()">Sign up</span> | <span (click)="forgotPassword()">Forgot password?</span></p>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
